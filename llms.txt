@@ -1,16 +1,15 @@
 # llm-judge
 
-> LLM-as-judge with versioned rubrics, strict per-criterion score parsing with one bounded re-ask, and quadratic weighted kappa calibration Python package `trysac-llm-judge`, import name `llm_judge`, MIT licensed,
-> Python >= 3.10, no runtime dependencies.
+> LLM-as-judge with versioned rubrics, strict per-criterion score parsing with one bounded re-ask, and quadratic weighted kappa calibration. Python package `trysac-llm-judge`, import name `llm_judge`, MIT licensed, Python >= 3.10, no runtime dependencies.
 
 ## Docs
 
-- [README](README.md): problem, install, usage example
-- [AGENTS](AGENTS.md): commands, folder map, conventions, limits
-- [Architecture](docs/ARCHITECTURE.md): shape of the package and its public API
-- [Testing](docs/TESTING.md): how to run and extend the tests
+- [README](README.md): problem, install, usage example, public API and limits
+- [Architecture](docs/ARCHITECTURE.md): modules and judge and calibration flows
+- [Testing](docs/TESTING.md): how to run checks and the acceptance behaviours
+- [Security](docs/SECURITY.md): threat model, defended and not defended
 
 ## Optional
 
-- [Stack](docs/STACK.md): tools used and discarded
-- [Changelog](CHANGELOG.md): release history
+- [Stack](docs/STACK.md): tools used
+- [Project record](docs/PROJECT.md): objective, scope and effort metrics

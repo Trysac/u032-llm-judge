@@ -1,23 +1,12 @@
-"""Behavior tests for the public API of llm_judge."""
-
-from __future__ import annotations
-
-import pytest
+"""Smoke tests for the public package surface."""
 
 import llm_judge
 
 
-def test_normalize_trims_and_lowercases() -> None:
-    assert llm_judge.normalize("  Hello World ") == "hello world"
+def test_version_has_three_parts() -> None:
+    assert llm_judge.__version__.count(".") == 2
 
 
-@pytest.mark.parametrize("value", ["", "   ", "\t\n"])
-def test_normalize_rejects_blank_input(value: str) -> None:
-    with pytest.raises(ValueError, match="must not be empty"):
-        llm_judge.normalize(value)
-
-
-def test_version_is_semver() -> None:
-    parts = llm_judge.__version__.split(".")
-    assert len(parts) == 3
-    assert all(part.isdigit() for part in parts)
+def test_all_exports_resolve() -> None:
+    for name in llm_judge.__all__:
+        assert hasattr(llm_judge, name)

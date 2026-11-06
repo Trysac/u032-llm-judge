@@ -9,4 +9,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- Added `llm_judge`: hashed rubrics, `judge()` with strict score parsing, one bounded re-ask and escaped candidate/reference tags, and `calibrate()` with exact, within-one and quadratic weighted kappa agreement.
 - Initial project structure from the factory utility template.
