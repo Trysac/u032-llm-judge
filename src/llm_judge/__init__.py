@@ -1,21 +1,30 @@
-"""LLM-as-judge with versioned rubrics, strict per-criterion score parsing with one bounded re-ask, and quadratic weighted kappa calibration"""
+"""LLM-as-judge with versioned rubrics, strict score parsing and kappa calibration."""
 
 from __future__ import annotations
 
-__all__ = ["__version__", "normalize"]
+from .calibration import Agreement, CalibrationReport, calibrate
+from .errors import JudgeError
+from .judging import judge
+from .models import JudgeEvent, Judgement
+from .ports import FakeLLM, LLMPort, Message, RecordedLLM, RecordingExhaustedError
+from .rubric import Criterion, Rubric
+
+__all__ = [
+    "Agreement",
+    "CalibrationReport",
+    "Criterion",
+    "FakeLLM",
+    "JudgeError",
+    "JudgeEvent",
+    "Judgement",
+    "LLMPort",
+    "Message",
+    "RecordedLLM",
+    "RecordingExhaustedError",
+    "Rubric",
+    "__version__",
+    "calibrate",
+    "judge",
+]
 
 __version__ = "0.1.0"
-
-
-def normalize(value: str) -> str:
-    """Return ``value`` trimmed and lower-cased.
-
-    Placeholder API created by the template: replace it with the utility's real behavior.
-
-    Raises:
-        ValueError: if ``value`` is empty or only whitespace.
-    """
-    cleaned = value.strip()
-    if not cleaned:
-        raise ValueError("value must not be empty")
-    return cleaned.lower()
